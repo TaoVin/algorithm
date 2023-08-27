@@ -6,6 +6,7 @@ import cn.victw.algorithm.sort.impl.BubbleSort;
 import cn.victw.algorithm.sort.impl.InsertionSort;
 import cn.victw.algorithm.sort.impl.SelectionSort;
 import cn.victw.algorithm.sort.impl.ShellSort;
+import cn.victw.algorithm.sort.impl.merge.MergeDownToTopSort;
 import junit.framework.TestCase;
 
 import java.lang.reflect.Proxy;
@@ -26,6 +27,7 @@ public class SortTest
         sort(array, new InsertionSort<>(), "插入");
         sort(array, new SelectionSort<>(), "选择");
         sort(array, new ShellSort<>(), "希尔");
+        sort(array, new MergeDownToTopSort<>(), "归并排序");
     }
 
     private void sort(Integer[] array, SortService<Integer> sortService, String msg) {
@@ -40,6 +42,7 @@ public class SortTest
         Integer[] toDescSort = Arrays.copyOf(array, array.length);
         Integer[] integersDesc = o.doSort(toDescSort, (x1, x2) -> x2 - x1);
         outArray(integersDesc);
+        System.out.println();
     }
 
     private void outArray(Integer[] arr) {
