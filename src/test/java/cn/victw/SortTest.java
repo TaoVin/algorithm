@@ -4,6 +4,7 @@ import cn.victw.algorithm.sort.SortProxy;
 import cn.victw.algorithm.sort.SortService;
 import cn.victw.algorithm.sort.impl.BubbleSort;
 import cn.victw.algorithm.sort.impl.InsertionSort;
+import cn.victw.algorithm.sort.impl.QuickSort;
 import cn.victw.algorithm.sort.impl.SelectionSort;
 import cn.victw.algorithm.sort.impl.ShellSort;
 import cn.victw.algorithm.sort.impl.merge.MergeDownToTopSort;
@@ -19,7 +20,6 @@ import java.util.Arrays;
 public class SortTest
         extends TestCase {
 
-
     public void test() {
         System.out.println("原数组:");
         Integer[] array = new Integer[]{12, 54, 23, -1, 67, 9, 11, 24, 55, 90, 22};
@@ -28,8 +28,9 @@ public class SortTest
         sort(array, new InsertionSort<>(), "插入");
         sort(array, new SelectionSort<>(), "选择");
         sort(array, new ShellSort<>(), "希尔");
-        sort(array, new MergeDownToTopSort<>(), "归并排序-自底向上");   
+        sort(array, new MergeDownToTopSort<>(), "归并排序-自底向上");
         sort(array, new MergeTopToDownSort<>(), "归并排序-自顶向下");
+        sort(array, new QuickSort<>(), "快速排序");
     }
 
     private void sort(Integer[] array, SortService<Integer> sortService, String msg) {
